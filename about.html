@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Me</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+  <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+  <style>
+    body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 15px; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 10px; }
+    .gallery a { width: 32%; }
+    .gallery img { width: 100%; height: 120px; object-fit: cover; }
+    #funFact { background: rgb(53,53,53); padding: 10px; margin-top: 15px; display: none; }
+  </style>
+</head>
+<body>
+  <h1>About Me</h1>
+  <p>Some of the interets i have are gym,playing games,sports and reading books, some of the skills that i have are, i have good communication skills with people, i can work in a team very well and i can solve problems in a given period of time and lastly i was born in malta and i'm half serbian/maltese.</p>
+  <p>If you would like to know more click on the Portfolio Button!</p>
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <a href="about.html" data-lightbox="gallery"><img src="images/crvenazvezda.jpg"></a>
+    <a href="about.html" data-lightbox="gallery"><img src="images/gymfort.jpg"></a>
+    <a href="about.html" data-lightbox="gallery"><img src="images/playingsports.jpg"></a>
+    <p>These are images about red star belgrade,the gym i go to and some of the sports i play from time to time</p>
+  </div>
+  <p>Plugin: <a href="https://lokeshdhakar.com/projects/lightbox2/" target="_blank">Lightbox2</a></p>
+  
+  <button id="SurpriseButton">Surprise fact!</button>
+  <div id="FunFact"></div>
+  
+  <script>
+    $(function() {
+      var facts = ["I can speak up to 3 languages being serbian,english and maltese"];
+      $("#SurpriseButton").click(function() {
+        var fact = facts[Math.floor(Math.random() * facts.length)];
+        $("#FunFact").text(fact).slideDown();
+      });
+    });
+  </script>
+ <footer>
+   <p>&copy; 2025 Luka Cosic's Website. All rights reserved.</p>
+</footer>
+</body>
+</html>

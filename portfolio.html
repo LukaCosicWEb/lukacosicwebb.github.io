@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+  <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+  <style>
+    body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 15px; }
+    .project { border: 1px solid #ddd; margin-bottom: 15px; padding: 10px; }
+    .details { display: none; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px; }
+    button { background: rgb(53, 53, 53); color: white; border: none; padding: 5px 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>My Projects</h1>
+  
+  <div class="project">
+    <h3>Website</h3>
+    <p>What was used to create the site:</p>
+    <button class="more-btn">View More</button>
+    <div class="details">
+      <p>Built with HTML, CSS, JavaScript</p>
+      <ul>
+        <li>Good use of coding for site.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    $(function() {
+      $(".more-btn").click(function() {
+        $(this).next(".details").slideToggle();
+        $(this).text($(this).text() == "View More" ? "View Less" : "View More");
+      });
+    });
+  </script>
+  <footer>
+    <p>&copy; 2025 Luka Cosic's Website. All rights reserved.</p>
+</footer>
+</body>
+</html>

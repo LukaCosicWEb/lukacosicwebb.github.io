@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <body>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Home Page</title>
+            <link rel="stylesheet" href="styles/styles.css">
+        </head>
+      <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <style>
+        body { font-family: sans-serif; max-width: 500px; margin: 20px auto; }
+        .row { margin-bottom: 10px; }
+        label { display: block; }
+        input, textarea { width: 100%; }
+        .err { color: red; font-size: 12px; }
+        button { background: rgb(53,53,53); color: white; border: none; padding: 8px 15px; }
+    </style>
+</head>
+<body>
+    <h2>Contact Me</h2>
+    <form id="form">
+        <div class="row">
+            <label>Full Name</label>
+            <input id="Full Name">
+            <span class="error" id="error 1"></span>
+        </div>
+        <div class="row">
+            <label>Email</label>
+            <input id="Email">
+            <span class="error" id="error 2"></span>
+        </div>
+        <div class="row">
+            <label>Contact Number</label>
+            <input id="Contact Number">
+            <span class="error" id="error 3"></span>
+        </div>
+        <div class="row">
+            <label>Comment</label>
+            <textarea id="Comment"></textarea>
+            <span class="error" id="error 4"></span>
+        </div>
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        // quick form validation
+        $("#form").submit(function(e) {
+            e.preventDefault();
+            $(".error").text("");
+            let ok = true;
+            
+            // check fields
+            if(!$("#Full Name").val().trim()) {
+                $("#error 1").text("Enter your full name");
+                ok = false;
+            }
+            
+            let mail = $("#Email").val().trim();
+            if(!mail || !/\S+@\S+\.\S+/.test(mail)) {
+                $("#error 2").text("Valid email is required to be written");
+                ok = false;
+            }
+            
+            let ph = $("#Contact Number").val().trim();
+            if(!ph || !/^\+356 \d{4} \d{4}$/.test(ph)) {
+                $("#error 3").text("Format: +356");
+                ok = false;
+            }
+            
+            let txt = $("#Comment").val().trim();
+            if(!txt || txt.length < 10) {
+                $("#error 4").text("Message needs 10 plus words");
+                ok = false;
+            }
+            
+            if(ok) {
+                alert("Thank you! Your message has been sent.");
+                this.reset();
+            }
+        });
+    </script>
+<footer>
+     <p>&copy; 2025 Luka Cosic's Website. All rights reserved.</p>
+ </footer>
+</body>
+</html>
